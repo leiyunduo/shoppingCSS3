@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    @keyframes cartopen {
+      0% {
+        background-position-x: 0;
+      }
+      100% {
+          background-position-x: 100%;
+      }
+    }
+    @keyframes cartclose {
+      0% {
+        background-position: 0 100%;
+      }
+      100% {
+          background-position: 100% 100%;
+      }
+    }
+    .carticon {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background: url(https://fuss10.elemecdn.com/7/40/0fc74fd72d16db1e48fc4cc759ec7png.png) 0 0 no-repeat;
+        background-size: auto 200%;
+        -webkit-transform-origin: left bottom;
+        transform-origin: left bottom;
+        -webkit-transform: scale(.75);
+        transform: scale(.75);
+    }
+    .cartopen {
+        animation: cartopen .5s steps(18) 1;
+    }
+    .cartclose {
+        animation: cartclose .5s steps(18) 1;
+    }
+  </style>
+</head>
+<body>
+  <span id="cartBtn" class="carticon" style="width: 123px; height: 123px;">
+  <script>
+    let isOpen = false
+    const cartBtn = document.getElementById('cartBtn')
+    cartBtn.onclick = function() {
+      cartBtn.classList.remove('cartclose')
+      cartBtn.classList.add('cartopen')
+      setTimeout(() => {
+        cartBtn.classList.remove('cartopen')
+        cartBtn.classList.add('cartclose')
+      }, 500);
+    }
+  </script>
+</body>
+</html>
